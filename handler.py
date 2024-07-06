@@ -12,7 +12,7 @@ from crosssellinsurance.CrossSellInsurance import CrossSellInsurance
 
 #%%
 #loading model
-model = pickle.load(open('src/models/model_logreg.pkl', 'rb'))
+model = pickle.load(open('model/model_logreg.pkl', 'rb'))
 
 #initialize API
 app = Flask(__name__)
