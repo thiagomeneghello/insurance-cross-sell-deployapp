@@ -7,7 +7,7 @@ import json
 import pandas as pd
 from sklearn import ensemble as en
 from sklearn import preprocessing as pp
-from flask import Flask, request, Response
+from flask import Flask, Response, request
 from crosssellinsurance.CrossSellInsurance import CrossSellInsurance
 
 #%%
@@ -15,9 +15,9 @@ from crosssellinsurance.CrossSellInsurance import CrossSellInsurance
 model = pickle.load(open('model/model_logreg.pkl', 'rb'))
 
 #initialize API
-app = Flask(__name__)
+app = Flask(__name__) 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST']) 
 def cross_sell_predict():
     test_json = request.get_json()
 
@@ -41,5 +41,5 @@ def cross_sell_predict():
         return Response('{no data avaible}', status=200, mimetype='application/json')
 
 if __name__=='main':
-    port = os.environ.get('PORT', 5000)
+    port = int(os.environ.get('PORT', 5000))
     app.run(host = '0.0.0.0', port = port)
