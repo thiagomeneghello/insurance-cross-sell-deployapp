@@ -5,7 +5,7 @@ import os
 import requests
 import json
 import pandas as pd
-from sklearn import ensemble as en
+from sklearn import linear_model as lm
 from sklearn import preprocessing as pp
 from flask import Flask, Response, request
 from crosssellinsurance.CrossSellInsurance import CrossSellInsurance
@@ -30,10 +30,10 @@ def cross_sell_predict():
         
         #instantiate class CrossSellInsurance
         pipeline = CrossSellInsurance()
-        df_pipe = pipeline.data_cleaning(test_raw)
-        df_pipe = pipeline.feature_engineering(df_pipe)
-        df_pipe = pipeline.data_preparation(df_pipe)
-        df_response = pipeline.get_prediction(model, test_raw, df_pipe)
+        df1 = pipeline.data_cleaning(test_raw)
+        df2 = pipeline.feature_engineering(df1)
+        df3 = pipeline.data_preparation(df2)
+        df_response = pipeline.get_prediction(model, test_raw, df3)
         
         return df_response
     
