@@ -42,7 +42,7 @@ class CrossSellInsurance(object):
         #gender - Label Encoding
         df4['gender'] = self.gender_scaler.transform(df4['gender'])
         #'region_code' - Target Encoding / Frequency Encoding
-        df4['region_code'] = self.region_code_scaler.transform(df4['region_code'])
+        df4['region_code'] = self.region_code_scaler.transform(df4[['region_code']].values)
         #'vehicle_age' - One Hot Encoding / Order Encoding / Frequency Encoding
         df4 = pd.get_dummies(df4, prefix='vehicle_age', columns=['vehicle_age'])
         #'policy_sales_channel' - Target Encoding / Frequency Encoding
