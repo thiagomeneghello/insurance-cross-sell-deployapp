@@ -8,15 +8,14 @@ import json
 import inflection
 from sklearn import preprocessing as pp
 
-#%%
 class CrossSellInsurance(object):
     def __init__(self):
-        self.annual_premium_scaler = pickle.load(open('src/features/annual_premium_scaler.pkl', 'rb'))
-        self.age_scaler = pickle.load(open('src/features/age_scaler.pkl', 'rb'))
-        self.gender_scaler = pickle.load(open('src/features/gender_scaler.pkl', 'rb'))
-        self.region_code_scaler = pickle.load(open('src/features/region_code_scaler.pkl', 'rb'))
-        self.sales_channel_scaler = pickle.load(open('src/features/sales_channel_scaler.pkl', 'rb'))
-        self.vintage_scaler = pickle.load(open('src/features/vintage_scaler.pkl', 'rb'))
+        self.annual_premium_scaler = pickle.load(open('features/annual_premium_scaler.pkl', 'rb'))
+        self.age_scaler = pickle.load(open('features/age_scaler.pkl', 'rb'))
+        self.gender_scaler = pickle.load(open('features/gender_scaler.pkl', 'rb'))
+        self.region_code_scaler = pickle.load(open('features/region_code_scaler.pkl', 'rb'))
+        self.sales_channel_scaler = pickle.load(open('features/sales_channel_scaler.pkl', 'rb'))
+        self.vintage_scaler = pickle.load(open('features/vintage_scaler.pkl', 'rb'))
 
     def data_cleaning(self, df2):
         cols_old = df2.columns
