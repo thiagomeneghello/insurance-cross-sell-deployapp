@@ -40,6 +40,6 @@ def cross_sell_predict():
     else:
         return Response('{no data avaible}', status=200, mimetype='application/json')
 
-if __name__=='main':
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host = '0.0.0.0', port = port)
