@@ -22,7 +22,7 @@ class CrossSellInsurance(object):
         snakecase = lambda x: inflection.underscore(x)
         cols_new = list(map(snakecase, cols_old))
         df2.columns = cols_new
-        return (df2)
+        return df2
     
     def feature_engineering(self, df3):
         df3['vehicle_age'] = df3['vehicle_age'].apply(lambda x: 'over_2_years' if x == '> 2 Years' else 'between_1_2_years' if x == '1-2 Year' else 'below_1_year')      
