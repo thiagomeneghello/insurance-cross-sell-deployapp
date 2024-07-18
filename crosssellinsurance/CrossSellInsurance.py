@@ -43,7 +43,7 @@ class CrossSellInsurance(object):
         #'vehicle_age' - One Hot Encoding / Order Encoding / Frequency Encoding
         df4 = pd.get_dummies(df4, prefix='vehicle_age', columns=['vehicle_age'])
         #'policy_sales_channel' - Target Encoding / Frequency Encoding
-        df4.loc[:, 'policy_sales_channel'] = df4['policy_sales_channel'].map(self.sales_channel_scaler)
+        df4['policy_sales_channel'] = df4['policy_sales_channel'].map(self.sales_channel_scaler)
 
         cols_selected = ['age','region_code','previously_insured',
                          'vehicle_damage','annual_premium',
