@@ -25,9 +25,7 @@ class CrossSellInsurance(object):
         return (df2)
     
     def feature_engineering(self, df3):
-        df3['vehicle_age'] = df3['vehicle_age'].apply(lambda i: 'over_2_years' if i == '> 2 Years' else
-                                                      'between_1_2_years' if i == '1-2 Year' else
-                                                      'below_1_year' if i == '< 1 Year')      
+        df3['vehicle_age'] = df3['vehicle_age'].apply(lambda i: 'over_2_years' if i == '> 2 Years' else 'between_1_2_years' if i == '1-2 Year' else 'below_1_year' if i == '< 1 Year')      
         df3['vehicle_damage'] = [1 if i== 'Yes' else 0 for i in df3['vehicle_damage']]
         return df3
     
